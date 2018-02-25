@@ -25,6 +25,9 @@ hpc$Date <- as.Date(hpc$Date, format="%d/%m/%Y")
 dateTime <- paste(hpc$Date, hpc$Time)
 hpc.DateTime <- as.POSIXct(dateTime)
 
+# Prepare output file format
+png(filename = "plot3.png",
+    width = 480, height = 480, units = "px", pointsize = 12)
 
 # Perform plot of the three Energy sub metering data elements
 plot ( hpc.DateTime , hpc[["Sub_metering_1"]], type = "l" , ylab = "Energy sub metering" , xlab = "" )
@@ -34,6 +37,5 @@ legend ( "topright", legend = c ( "Sub_metering_1", "Sub_metering_2", "Sub_meter
 
 
 
-# Save plot to plot3.png
-dev.copy ( png, file = "plot3.png" )
+# Save plot 
 dev.off()

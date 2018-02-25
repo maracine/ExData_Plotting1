@@ -25,9 +25,12 @@ hpc$Date <- as.Date(hpc$Date, format="%d/%m/%Y")
 dateTime <- paste(hpc$Date, hpc$Time)
 hpc.DateTime <- as.POSIXct(dateTime)
 
+# Prepare output file format
+png(filename = "plot2.png",
+    width = 480, height = 480, units = "px", pointsize = 12)
+
 # Perform plot of Global_active_power
 plot ( hpc.DateTime , hpc[["Global_active_power"]] , type = "l" , ylab = "Global Active Power (kilowatts)" , xlab = "")
 
-# Save plot to plot2.png
-dev.copy ( png, file = "plot2.png" )
+# Save plot 
 dev.off()

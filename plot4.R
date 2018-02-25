@@ -25,6 +25,11 @@ hpc$Date <- as.Date(hpc$Date, format="%d/%m/%Y")
 dateTime <- paste(hpc$Date, hpc$Time)
 hpc.DateTime <- as.POSIXct(dateTime)
 
+
+# Prepare output file format
+png(filename = "plot4.png",
+    width = 480, height = 480, units = "px", pointsize = 12)
+
 # Format output plots using a 2 by 2 Matrix
 par(mfrow = c ( 2, 2) )
 
@@ -44,6 +49,5 @@ legend ( "topright", legend = c ( "Sub_metering_1", "Sub_metering_2", "Sub_meter
 plot ( hpc.DateTime , hpc[["Global_reactive_power"]] , type = "l" , ylab = "Global Reactive Power", xlab = "Date & Time" )
 
 
-# Save plot to plot4.png
-dev.copy ( png, file = "plot4.png", height=480, width=480 )
+# Save plotS
 dev.off()
